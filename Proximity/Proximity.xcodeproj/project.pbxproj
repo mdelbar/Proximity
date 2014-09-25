@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9130150E19D48CCF0071D4A8 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130150D19D48CCF0071D4A8 /* LocationController.swift */; };
+		9130151119D48E220071D4A8 /* UsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151019D48E220071D4A8 /* UsersModel.swift */; };
+		9130151419D48FD20071D4A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151319D48FD20071D4A8 /* User.swift */; };
+		9130151619D494B90071D4A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151519D494B90071D4A8 /* Model.swift */; };
+		9130151819D4A5AD0071D4A8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9130151719D4A5AD0071D4A8 /* CoreLocation.framework */; };
 		91731D3B19D3323E00C77396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3A19D3323E00C77396 /* AppDelegate.swift */; };
 		91731D3E19D3323F00C77396 /* Proximity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3C19D3323E00C77396 /* Proximity.xcdatamodeld */; };
 		91731D4019D3323F00C77396 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3F19D3323F00C77396 /* MasterViewController.swift */; };
@@ -15,6 +20,11 @@
 		91731D4719D3323F00C77396 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91731D4619D3323F00C77396 /* Images.xcassets */; };
 		91731D4A19D3323F00C77396 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91731D4819D3323F00C77396 /* LaunchScreen.xib */; };
 		91731D5619D3323F00C77396 /* ProximityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D5519D3323F00C77396 /* ProximityTests.swift */; };
+		91731D6619D33BE300C77396 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D6519D33BE300C77396 /* XCGLogger.swift */; };
+		91731D6919D33C5000C77396 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D6719D33C5000C77396 /* MainViewController.swift */; };
+		91731D6A19D33C5000C77396 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D6819D33C5000C77396 /* MapViewController.swift */; };
+		91731D6D19D33CEB00C77396 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D6C19D33CEB00C77396 /* HttpHelper.swift */; };
+		91731D7019D3449D00C77396 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D6F19D3449D00C77396 /* UserController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9130150D19D48CCF0071D4A8 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationController.swift; path = Controllers/LocationController.swift; sourceTree = "<group>"; };
+		9130151019D48E220071D4A8 /* UsersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UsersModel.swift; path = Models/UsersModel.swift; sourceTree = "<group>"; };
+		9130151319D48FD20071D4A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/Data/User.swift; sourceTree = "<group>"; };
+		9130151519D494B90071D4A8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Models/Model.swift; sourceTree = "<group>"; };
+		9130151719D4A5AD0071D4A8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		91731D3519D3323E00C77396 /* Proximity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proximity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91731D3919D3323E00C77396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91731D3A19D3323E00C77396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +55,11 @@
 		91731D4F19D3323F00C77396 /* ProximityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProximityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91731D5419D3323F00C77396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91731D5519D3323F00C77396 /* ProximityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProximityTests.swift; sourceTree = "<group>"; };
+		91731D6519D33BE300C77396 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XCGLogger.swift; path = Logging/XCGLogger.swift; sourceTree = "<group>"; };
+		91731D6719D33C5000C77396 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Views/MainViewController.swift; sourceTree = "<group>"; };
+		91731D6819D33C5000C77396 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Views/MapViewController.swift; sourceTree = "<group>"; };
+		91731D6C19D33CEB00C77396 /* HttpHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpHelper.swift; path = Helpers/HttpHelper.swift; sourceTree = "<group>"; };
+		91731D6F19D3449D00C77396 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = Controllers/UserController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9130151819D4A5AD0071D4A8 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,9 +81,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9130150F19D48E040071D4A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9130151219D48F9E0071D4A8 /* Data */,
+				9130151019D48E220071D4A8 /* UsersModel.swift */,
+				9130151519D494B90071D4A8 /* Model.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9130151219D48F9E0071D4A8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9130151319D48FD20071D4A8 /* User.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		91731D2C19D3323E00C77396 = {
 			isa = PBXGroup;
 			children = (
+				9130151719D4A5AD0071D4A8 /* CoreLocation.framework */,
 				91731D3719D3323E00C77396 /* Proximity */,
 				91731D5219D3323F00C77396 /* ProximityTests */,
 				91731D3619D3323E00C77396 /* Products */,
@@ -81,6 +121,11 @@
 		91731D3719D3323E00C77396 /* Proximity */ = {
 			isa = PBXGroup;
 			children = (
+				9130150F19D48E040071D4A8 /* Models */,
+				91731D6E19D3447C00C77396 /* Controllers */,
+				91731D6B19D33CA600C77396 /* Helpers */,
+				91731D6419D33B5800C77396 /* Logging */,
+				91731D5F19D3361300C77396 /* Views */,
 				91731D3A19D3323E00C77396 /* AppDelegate.swift */,
 				91731D3F19D3323F00C77396 /* MasterViewController.swift */,
 				91731D4119D3323F00C77396 /* DetailViewController.swift */,
@@ -116,6 +161,40 @@
 				91731D5419D3323F00C77396 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		91731D5F19D3361300C77396 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91731D6719D33C5000C77396 /* MainViewController.swift */,
+				91731D6819D33C5000C77396 /* MapViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		91731D6419D33B5800C77396 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				91731D6519D33BE300C77396 /* XCGLogger.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		91731D6B19D33CA600C77396 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91731D6C19D33CEB00C77396 /* HttpHelper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		91731D6E19D3447C00C77396 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				91731D6F19D3449D00C77396 /* UserController.swift */,
+				9130150D19D48CCF0071D4A8 /* LocationController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,10 +297,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91731D7019D3449D00C77396 /* UserController.swift in Sources */,
 				91731D3B19D3323E00C77396 /* AppDelegate.swift in Sources */,
+				91731D6619D33BE300C77396 /* XCGLogger.swift in Sources */,
 				91731D3E19D3323F00C77396 /* Proximity.xcdatamodeld in Sources */,
+				91731D6D19D33CEB00C77396 /* HttpHelper.swift in Sources */,
+				9130151619D494B90071D4A8 /* Model.swift in Sources */,
+				91731D6A19D33C5000C77396 /* MapViewController.swift in Sources */,
 				91731D4019D3323F00C77396 /* MasterViewController.swift in Sources */,
 				91731D4219D3323F00C77396 /* DetailViewController.swift in Sources */,
+				9130151419D48FD20071D4A8 /* User.swift in Sources */,
+				9130150E19D48CCF0071D4A8 /* LocationController.swift in Sources */,
+				91731D6919D33C5000C77396 /* MainViewController.swift in Sources */,
+				9130151119D48E220071D4A8 /* UsersModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +501,7 @@
 				91731D5B19D3323F00C77396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		91731D5C19D3323F00C77396 /* Build configuration list for PBXNativeTarget "ProximityTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +510,7 @@
 				91731D5E19D3323F00C77396 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

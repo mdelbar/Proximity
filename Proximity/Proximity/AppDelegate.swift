@@ -9,6 +9,13 @@
 import UIKit
 import CoreData
 
+
+
+// Global logging constant
+let logger = XCGLogger.defaultInstance()
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,9 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let navigationController = self.window!.rootViewController as UINavigationController
-        let controller = navigationController.topViewController as MasterViewController
-        controller.managedObjectContext = self.managedObjectContext
+        
+        // Initialize logging config
+        logger.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil)
+        
+//        let navigationController = self.window!.rootViewController as UINavigationController
+//        let controller = navigationController.topViewController as MasterViewController
+//        controller.managedObjectContext = self.managedObjectContext
         return true
     }
 
