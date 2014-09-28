@@ -22,8 +22,8 @@ class LocationController: NSObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
 //        locationManager.distanceFilter = 25
-//        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestAlwaysAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
         
         logger.debug("Location manager status: [\(CLLocationManager.authorizationStatus().toRaw())]")
@@ -35,7 +35,7 @@ class LocationController: NSObject, CLLocationManagerDelegate {
     // We received updated location info
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         logger.debug("Updated locations: [\(locations)]")
-        NSNotificationCenter.defaultCenter().postNotificationName("MyLocationUpdated", object: nil, userInfo: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("MyLocationUpdated", object: nil, userInfo: ["lat": manager.location.coordinate.latitude, "long": manager.location.coordinate.longitude])
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {

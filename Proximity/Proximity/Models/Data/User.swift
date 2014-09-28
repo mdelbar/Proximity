@@ -12,7 +12,8 @@ class User {
     
     var name: String?
     var age: Int?
-    var location: (Double, Double)?
+    var lat: Double?
+    var long: Double?
     
     init() {
         
@@ -21,7 +22,7 @@ class User {
     // Read-only computed property
     var description: String! {
         get {
-            return "User: name [\(name!)], age [\(age!)], location [\(location)]"
+            return "User: name [\(name!)], age [\(age!)], lat [\(lat)], long [\(long)]"
         }
     }
     

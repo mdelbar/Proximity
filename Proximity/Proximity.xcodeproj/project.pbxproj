@@ -12,6 +12,7 @@
 		9130151419D48FD20071D4A8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151319D48FD20071D4A8 /* User.swift */; };
 		9130151619D494B90071D4A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151519D494B90071D4A8 /* Model.swift */; };
 		9130151819D4A5AD0071D4A8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9130151719D4A5AD0071D4A8 /* CoreLocation.framework */; };
+		9130151A19D731630071D4A8 /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9130151919D731630071D4A8 /* UserAnnotation.swift */; };
 		91731D3B19D3323E00C77396 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3A19D3323E00C77396 /* AppDelegate.swift */; };
 		91731D3E19D3323F00C77396 /* Proximity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3C19D3323E00C77396 /* Proximity.xcdatamodeld */; };
 		91731D4019D3323F00C77396 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91731D3F19D3323F00C77396 /* MasterViewController.swift */; };
@@ -43,6 +44,7 @@
 		9130151319D48FD20071D4A8 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Models/Data/User.swift; sourceTree = "<group>"; };
 		9130151519D494B90071D4A8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Models/Model.swift; sourceTree = "<group>"; };
 		9130151719D4A5AD0071D4A8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9130151919D731630071D4A8 /* UserAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAnnotation.swift; path = Models/Data/UserAnnotation.swift; sourceTree = "<group>"; };
 		91731D3519D3323E00C77396 /* Proximity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Proximity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91731D3919D3323E00C77396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91731D3A19D3323E00C77396 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				9130151319D48FD20071D4A8 /* User.swift */,
+				9130151919D731630071D4A8 /* UserAnnotation.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -124,7 +127,6 @@
 				9130150F19D48E040071D4A8 /* Models */,
 				91731D6E19D3447C00C77396 /* Controllers */,
 				91731D6B19D33CA600C77396 /* Helpers */,
-				91731D6419D33B5800C77396 /* Logging */,
 				91731D5F19D3361300C77396 /* Views */,
 				91731D3A19D3323E00C77396 /* AppDelegate.swift */,
 				91731D3F19D3323F00C77396 /* MasterViewController.swift */,
@@ -172,17 +174,10 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		91731D6419D33B5800C77396 /* Logging */ = {
-			isa = PBXGroup;
-			children = (
-				91731D6519D33BE300C77396 /* XCGLogger.swift */,
-			);
-			name = Logging;
-			sourceTree = "<group>";
-		};
 		91731D6B19D33CA600C77396 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				91731D6519D33BE300C77396 /* XCGLogger.swift */,
 				91731D6C19D33CEB00C77396 /* HttpHelper.swift */,
 			);
 			name = Helpers;
@@ -310,6 +305,7 @@
 				9130150E19D48CCF0071D4A8 /* LocationController.swift in Sources */,
 				91731D6919D33C5000C77396 /* MainViewController.swift in Sources */,
 				9130151119D48E220071D4A8 /* UsersModel.swift in Sources */,
+				9130151A19D731630071D4A8 /* UserAnnotation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

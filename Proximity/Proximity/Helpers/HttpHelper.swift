@@ -23,10 +23,10 @@ class HttpHelper {
         request.HTTPMethod = "GET"
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: {
-            (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            (response:NSURLResponse!, data: NSData!, responseError: NSError!) -> Void in
             
             if data == nil {
-                logger.error("No data returned, error: \(error?.localizedDescription)")
+                logger.error("No data returned, error: \(responseError?.localizedDescription)")
                 return
             }
             

@@ -15,10 +15,20 @@ class UsersModel: Model {
     
     override init() {
         super.init()
+        NSNotificationCenter.defaultCenter().addObserverForName("MyLocationUpdated", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleMyLocationUpdatedNotification)
         NSNotificationCenter.defaultCenter().addObserverForName("AllUsersFetched", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleAllUsersFetchedNotification)
     }
     
     // MARK: - Notification handlers
+    
+    func handleMyLocationUpdatedNotification(notification: NSNotification!) {
+        logger.verbose("Handling notification [\(notification.name)]")
+        
+        if let data: NSDictionary = unwrapNotificationData(notification: notification) {
+            me.lat = data["lat"] as? Double
+            me.long = data["long"] as? Double
+        }
+    }
     
     func handleAllUsersFetchedNotification(notification: NSNotification!) {
         logger.verbose("Handling notification [\(notification.name)]")
@@ -37,9 +47,10 @@ class UsersModel: Model {
                         newUser.age = age
                     }
                     if let lat = user["lat"] as? Double {
-                        if let long = user["long"] as? Double {
-                            newUser.location = (lat, long)
-                        }
+                        newUser.lat = lat
+                    }
+                    if let long = user["long"] as? Double {
+                        newUser.long = long
                     }
                     self.users.append(newUser)
                 }
