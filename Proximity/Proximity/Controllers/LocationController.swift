@@ -18,15 +18,12 @@ class LocationController: NSObject, CLLocationManagerDelegate {
     }
     
     func startTrackingLocation() {
-        logger.debug("Starting to track location")
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
 //        locationManager.distanceFilter = 25
         locationManager.requestWhenInUseAuthorization()
 //        locationManager.requestAlwaysAuthorization()
         locationManager.startMonitoringSignificantLocationChanges()
-        
-        logger.debug("Location manager status: [\(CLLocationManager.authorizationStatus().toRaw())]")
     }
     
     

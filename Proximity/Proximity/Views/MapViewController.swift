@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     
     var locationController = LocationController()
     var userController = UserController()
-    var usersModel = UsersModel()
+    var usersModel: UsersModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +36,13 @@ class MapViewController: UIViewController {
         fetchUsersNearMe()
     }
     
-    func fetchUsersNearMe() {
-        userController.fetchUsers()
+    private func fetchUsersNearMe() {
+        userController.fetchUsersNear(user: usersModel!.me)
     }
     
     // MARK: - Notification handlers
     
-    func handleMyLocationUpdatedNotification(notification: NSNotification!) {
+    private func handleMyLocationUpdatedNotification(notification: NSNotification!) {
         logger.verbose("Handling notification [\(notification.name)]")
         
         // Remove self as observer again
@@ -52,13 +52,15 @@ class MapViewController: UIViewController {
         fetchUsersNearMe()
     }
     
-    func handleUserModelUpdatedNotification(notification: NSNotification!) {
+    private func handleUserModelUpdatedNotification(notification: NSNotification!) {
         logger.verbose("Handling notification [\(notification.name)]")
         logger.debug("Users model was updated, refreshing view")
         
         // Refresh map view
-        updateMap(users: usersModel.users, me: usersModel.me)
+        updateMap(users: usersModel!.users, me: usersModel!.me)
     }
+    
+    // MARK: - Map update logic
     
     private func updateMap(#users: [User], me: User) {
         // Clear map of existing annotations first
@@ -77,11 +79,6 @@ class MapViewController: UIViewController {
             bottomRightLong = max(user.long!, bottomRightLong)
         }
         // Also take the own user's location into account for the topLeft/bottomRight calculations
-        //        let userCoords = mapView.userLocation.location.coordinate
-//        topLeftLat = max(userCoords.latitude, topLeftLat)
-//        topLeftLong = min(userCoords.longitude, topLeftLong)
-//        bottomRightLat = min(userCoords.latitude, bottomRightLat)
-//        bottomRightLong = max(userCoords.longitude, bottomRightLong)
         topLeftLat = max(me.lat!, topLeftLat)
         topLeftLong = min(me.long!, topLeftLong)
         bottomRightLat = min(me.lat!, bottomRightLat)

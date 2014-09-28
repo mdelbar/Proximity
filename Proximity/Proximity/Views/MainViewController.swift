@@ -12,6 +12,9 @@ import QuartzCore
 
 class MainViewController: UIViewController {
     
+    let mainViewToMapViewSegueIdentifier = "mainViewToMapViewSegue"
+    var usersModel = UsersModel()
+    
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var sexSC: UISegmentedControl!
     @IBOutlet weak var ageTF: UITextField!
@@ -19,13 +22,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var lookingForAgeMinTF: UITextField!
     @IBOutlet weak var lookingForAgeMaxTF: UITextField!
     
-    var mapViewController: MapViewController?
-    
     
     @IBAction func search(sender: AnyObject) {
+        let searchBtn = sender as UIBarButtonItem
+        searchBtn.enabled = false
         if(validateFields()) {
+            searchBtn.enabled = true
             goToMapView()
         }
+        // Re-enable the search button regardless if we go to map view or not
+        searchBtn.enabled = true
     }
     
     private func validateFields() -> Bool {
@@ -39,7 +45,7 @@ class MainViewController: UIViewController {
             textfield.layer.borderColor = UIColor.lightGrayColor().CGColor
         }
         for segment in segments {
-            segment.tintColor = UIColor(red: 0/255.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+            segment.tintColor = UIColor(red: 0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
         }
         
         // Validate everything
@@ -63,11 +69,53 @@ class MainViewController: UIViewController {
     }
     
     private func goToMapView() {
-        logger.debug("Going to map view")
-        self.performSegueWithIdentifier("mainViewToMapViewSegue", sender: self)
+        if usersModel.me.id == nil {
+            // ID is nil, so user has not yet been created on the server
+            var sex: String
+            switch sexSC.selectedSegmentIndex {
+                case 0:
+                    sex = "m"
+                case 1:
+                    sex = "f"
+                default:
+                    sex = ""
+            }
+            
+            var lookingForSex: String
+            switch lookingForSexSC.selectedSegmentIndex {
+                case 0:
+                    lookingForSex = "m"
+                case 1:
+                    lookingForSex = "f"
+                case 2:
+                    lookingForSex = "m,f"
+                default:
+                    lookingForSex = ""
+            }
+            
+            NSNotificationCenter.defaultCenter().addObserverForName("UserCreated", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: handleUserCreatedNotification)
+            UserController().createUser(name: nameTF.text, age: ageTF.text.toInt()!, sex: sex, lat: 0.0, long: 0.0, lookingFor: lookingForSex)
+        }
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == mainViewToMapViewSegueIdentifier) {
+            let destination = segue.destinationViewController as MapViewController
+            destination.usersModel = usersModel
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    
+    // MARK: - Notification handlers
+    
+    func handleUserCreatedNotification(notification: NSNotification!) {
+        logger.verbose("Handling notification [\(notification.name)]")
+        
+        self.performSegueWithIdentifier(mainViewToMapViewSegueIdentifier, sender: self)
     }
 }

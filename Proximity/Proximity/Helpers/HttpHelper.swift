@@ -22,6 +22,40 @@ class HttpHelper {
         request.URL = self.composeUrl(serverPath: path)
         request.HTTPMethod = "GET"
         
+        executeRequest(request: request, notification: notif)
+    }
+    
+    class func post(serverPath path: String, data: NSDictionary, notification notif: String) {
+        var request = NSMutableURLRequest()
+        request.URL = self.composeUrl(serverPath: path)
+        var e: NSError?
+        let jsonData = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions(0), error: &e)
+        logger.verbose("DICT data: [\(data)]")
+        request.HTTPBody = jsonData
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPMethod = "POST"
+        
+        executeRequest(request: request, notification: notif)
+    }
+    
+    class func put(serverPath path: String, data: NSDictionary, notification notif: String) {
+        var request = NSMutableURLRequest()
+        request.URL = self.composeUrl(serverPath: path)
+        var e: NSError?
+        let jsonData = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions(0), error: &e)
+        logger.verbose("DICT data: [\(data)]")
+        request.HTTPBody = jsonData
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPMethod = "PUT"
+        
+        executeRequest(request: request, notification: notif)
+    }
+    
+    
+    
+    private class func executeRequest(#request: NSMutableURLRequest, notification notif: String) {
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler: {
             (response:NSURLResponse!, data: NSData!, responseError: NSError!) -> Void in
             
@@ -31,11 +65,11 @@ class HttpHelper {
             }
             
             var error: NSError?
-            let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+            let jsonResult: NSDictionary? = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: &error) as? NSDictionary
             
             if jsonResult != nil {
-                logger.verbose("Asynchronous request completed, result: \(jsonResult)")
-                NSNotificationCenter.defaultCenter().postNotificationName(notif, object: nil, userInfo: jsonResult)
+                logger.verbose("Asynchronous request completed, result: \(jsonResult!)")
+                NSNotificationCenter.defaultCenter().postNotificationName(notif, object: nil, userInfo: jsonResult!)
             }
             else {
                 logger.error("Error sending async request: \(error?.localizedDescription)")
